@@ -1,73 +1,20 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Timeline | Basic demo</title>
+  <title>Rohan Tronson | Interactive Resume</title>
+
+<!--
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400italic,400"> -->
 
   <style type="text/css">
     body, html {
       font-family: sans-serif;
     }
   </style>
-  <style type="text/css">
-/* Popup container - can be anything you want */
-.popup {
-    position: relative;
-    display: inline-block;
-    white-space: normal;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* The actual popup */
-.popup .popuptext {
-    visibility: hidden;
-    width: 600px;  
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute; 
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -600px; 
-    margin-right: -600px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-}
-</style>
+  <script src="./js/jquery.js"></script>
+  <link href="./css/ov_tooltips.css" rel="stylesheet" type="text/css" />
+  <link href="./css/ov_main.css" rel="stylesheet" type="text/css" />
+  <script src="./js/ov_tooltips.js"></script>
 
   <script src="node_modules/vis/dist/vis.js"></script>
   <link href="node_modules/vis/dist//vis.css" rel="stylesheet" type="text/css" />
@@ -91,23 +38,27 @@ function myFunction() {
   var items = new vis.DataSet([
     {id: 810,
 	className: 'achievement',
+	style: 'background-color: lightgray',
 	type: 'box',
-	content: '<div class="popup" onclick="myFunction()">PCI Compliance <span class="popuptext" id="myPopup">Designed a PCI-DSS compliant payment solution for ipSCAPE’s Cloud Contact Centre, enabling ipSCAPE to retain over $1 million in annual revenue from customers with PCI-DSS compliance requirements and enabling additional sales opportunities of approximately $5 million per annum.</span> </div>',
+	content: '<div rel="tooltip" title="Designed a PCI-DSS compliant payment solution for ipSCAPE’s Cloud Contact Centre, enabling ipSCAPE to retain over $1 million in annual revenue from customers with PCI-DSS compliance requirements and enabling additional sales opportunities of approximately $5 million per annum">PCI Compliance</div>',
+/*	content: '<div class="popup" onclick="myFunction()">PCI Compliance <span class="popuptext" id="myPopup">Designed a PCI-DSS compliant payment solution for ipSCAPE’s Cloud Contact Centre, enabling ipSCAPE to retain over $1 million in annual revenue from customers with PCI-DSS compliance requirements and enabling additional sales opportunities of approximately $5 million per annum.</span> </div>',
+*/
 /*	title: '<div width="250px" style="white-space:normal">Designed a PCI-DSS compliant payment solution for ipSCAPE’s Cloud Contact Centre, enabling ipSCAPE to retain over $1 million in annual revenue from customers with PCI-DSS compliance requirements and enabling additional sales opportunities of approximately $5 million per annum.</div>', */
 	start: '2016-06-15'},
 	
     {id: 812,
 	className: 'achievement',
-	type: 'point',
-	content: 'DevOps',
-	title: 'Engagement with stakeholders and development of a suite of DevOps tools and processes to vastly improve the quality of our software, increase the reliability of our infrastructure change process and enhance our security capabilities.',
+	type: 'box',
+	style: 'background-color: lightgray',
+	content: '<div rel="tooltip" title="Engagement with stakeholders and development of a suite of DevOps tools and processes to vastly improve the quality of our software, increase the reliability of our infrastructure change process and enhance our security capabilities.">DevOps</div>',
+/*	title: 'Engagement with stakeholders and development of a suite of DevOps tools and processes to vastly improve the quality of our software, increase the reliability of our infrastructure change process and enhance our security capabilities.', */
 	start: '2016-12-01'},
 	
     {id: 814,
 	className: 'achievement',
-	type: 'point',
-	content: 'Cloud Platform',
-	title: '<div width="100">Successfully delivered an infinitely scalable platform, constructed from independent pods which can be used for efficient scaling or redundancy. This solution has been deployed as ipSCAPE’s SaaS platform and has been selected by a multi-billion dollar telecommunications company to re-brand as their Cloud Contact Centre product of choice, globally.</div>',
+	type: 'box',
+	style: 'background-color: lightgray',
+	content: '<div rel="tooltip" title="Successfully delivered an infinitely scalable platform, constructed from independent pods which can be used for efficient scaling or redundancy. This solution has been deployed as ipSCAPE’s SaaS platform and has been selected by a multi-billion dollar telecommunications company to re-brand as their Cloud Contact Centre product of choice, globally.">Cloud Platform</div>',
 	start: '2016-02-01'},
 	
     {id: 900,
@@ -126,7 +77,7 @@ function myFunction() {
         end: '2017-06-01'},
 
     {id: 902,
-        tontent: 'Technical Operations Manager',
+        content: 'Technical Operations Manager',
         title: 'Technical Operations Manager<br><b>ipSCAPE</b>',
 /*	style: 'white-space: normal', */
         start: '2015-03-01',
@@ -213,7 +164,7 @@ function myFunction() {
   // Configuration for the Timeline
   var options = {
 	align: 'center',
-	max: '2017-06-01',
+	max: '2018-06-01',
 	min: '1992-01-01',
 	minHeight: "350px",
 	zoomMin: '15768000000',
@@ -222,6 +173,9 @@ function myFunction() {
 
   // Create a Timeline
   var timeline = new vis.Timeline(container, items, options);
-</script>
+<!-- </script>
+<abbr rel="tooltip" title="Test this for me, long desription should wrap if we have half a clue">
+Test text
+</abbr> -->
 </body>
 </html>
