@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Timeline | Basic demo</title>
+
+  <style type="text/css">
+    body, html {
+      font-family: sans-serif;
+    }
+  </style>
+  <style type="text/css">
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    white-space: normal;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 600px;  
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute; 
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -600px; 
+    margin-right: -600px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+</style>
+
+  <script src="node_modules/vis/dist/vis.js"></script>
+  <link href="node_modules/vis/dist//vis.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="visualization"></div>
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+</script>
+
+<script type="text/javascript">
+  // DOM element where the Timeline will be attached
+  var container = document.getElementById('visualization');
+
+  // Create a DataSet (allows two way data-binding)
+  var items = new vis.DataSet([
+    {id: 810,
+	className: 'achievement',
+	type: 'box',
+	content: '<div class="popup" onclick="myFunction()">PCI Compliance <span class="popuptext" id="myPopup">Designed a PCI-DSS compliant payment solution for ipSCAPE’s Cloud Contact Centre, enabling ipSCAPE to retain over $1 million in annual revenue from customers with PCI-DSS compliance requirements and enabling additional sales opportunities of approximately $5 million per annum.</span> </div>',
+/*	title: '<div width="250px" style="white-space:normal">Designed a PCI-DSS compliant payment solution for ipSCAPE’s Cloud Contact Centre, enabling ipSCAPE to retain over $1 million in annual revenue from customers with PCI-DSS compliance requirements and enabling additional sales opportunities of approximately $5 million per annum.</div>', */
+	start: '2016-06-15'},
+	
+    {id: 812,
+	className: 'achievement',
+	type: 'point',
+	content: 'DevOps',
+	title: 'Engagement with stakeholders and development of a suite of DevOps tools and processes to vastly improve the quality of our software, increase the reliability of our infrastructure change process and enhance our security capabilities.',
+	start: '2016-12-01'},
+	
+    {id: 814,
+	className: 'achievement',
+	type: 'point',
+	content: 'Cloud Platform',
+	title: '<div width="100">Successfully delivered an infinitely scalable platform, constructed from independent pods which can be used for efficient scaling or redundancy. This solution has been deployed as ipSCAPE’s SaaS platform and has been selected by a multi-billion dollar telecommunications company to re-brand as their Cloud Contact Centre product of choice, globally.</div>',
+	start: '2016-02-01'},
+	
+    {id: 900,
+	className: 'company',
+        type: 'background',
+        content: '<img class="lazy-image org-top-card-module__logo loaded" alt="ipSCAPE Logo" height="90" width="90" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAO-AAAAJGEzZWFjYjE1LTVmOGItNGQ0Ny05YzQxLWExYWIzN2QzMWVmZg.png"><br>ipSCAPE',
+        title: 'ipSCAPE develops and hosts a SaaS Contact Centre, providing a fully featured, omni-channel contact centre solution delivered from the cloud or as a white-label, carrier solution.<P>',
+        start: '2015-03-01',
+        end: '2017-06-01'},
+
+    {id: 901,
+        type: 'range',
+        content: 'Head of Cloud Technology',
+        title: 'Head of Cloud Technology<br><b>ipSCAPE</b>',
+        start: '2015-09-2',
+        end: '2017-06-01'},
+
+    {id: 902,
+        tontent: 'Technical Operations Manager',
+        title: 'Technical Operations Manager<br><b>ipSCAPE</b>',
+/*	style: 'white-space: normal', */
+        start: '2015-03-01',
+        end: '2015-09-01'},
+
+    {id: 910,
+        type: 'background',
+        content: '<img class="lazy-image org-top-card-module__logo loaded" alt="Ninefold Logo" height="90" width="90" src="https://media.licdn.com/mpr/mpr/shrink_100_100/p/7/005/012/2ab/0e58b09.png"><br>Ninefold',
+        style: "background-color: pink;",
+        start: '2014-08-01',
+        end: '2015-03-01'},
+
+    {id: 913,
+        content: 'Head of Operations and Support',
+        title: 'Head of Operations and Support<br><b>Ninefold</b>',
+        start: '2014-08-01',
+        end: '2015-03-01'},
+
+    {id: 922,
+        type: 'background',
+        content: '<img class="lazy-image org-top-card-module__logo loaded" alt="Digital Post Australia Logo" height="90" width="90" src="https://media.licdn.com/mpr/mpr/shrink_100_100/p/2/000/279/3ec/0dea9fb.png"><br>Digital Post Australia',
+        start: '2012-03-02',
+        end: '2014-08-01'},
+
+    {id: 923,
+        content: 'Head of Technology',
+        title: 'Head of Technology<br><b>Digital Post Australia</b>',
+        start: '2012-09-02',
+        end: '2014-08-01'},
+
+    {id: 924,
+        content: 'Lead Technologist',
+        title: 'Lead Technologist<br><b>Digital Post Australia</b>',
+        start: '2012-03-02',
+        end: '2012-09-01'},
+
+    {id: 930,
+        type: 'background',
+        style: "background-color: pink;",
+        content: '<img class="lazy-image org-top-card-module__logo loaded" alt="Silverbrook Research Logo" height="90" width="90" src="https://media.licdn.com/mpr/mpr/shrink_100_100/p/7/000/24f/3ba/1fd79f3.png"><br>Silverbrook Research',
+        start: '2007-10-02',
+        end: '2012-03-01'},
+
+    {id: 935,
+        content: 'Global IT Operations Manager',
+        title: 'Global IT Operations Manager<br><b>Silverbrook Research</b>',
+        start: '2007-10-02',
+        end: '2012-03-01'},
+
+    {id: 940,
+        type: 'background',
+	content: '<div align="center" style="font-size: 150%;font-weight: bold; align-content: center;color:grey"><img class="lazy-image org-top-card-module__logo loaded" alt="iTouch Messaging Services (PTY) Ltd Logo" height="90" width="90" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAfeAAAAJGYzMjNmYmVmLTc4MGUtNDdkZC1iMGZkLTc2NTY2NGNmODQwNg.png"></div><div style="font-size: 150%;font-weight: bold; align-content: center;color:grey">iTouch Australia</div>',
+        start: '2006-05-01',
+        end: '2007-10-01'},
+    {id: 941,
+        content: 'Lead System Administrator',
+        title: 'Lead System Administrator<br><b>iTouch Australia</b>',
+        start: '2006-05-01',
+        end: '2007-01-01'},
+    {id: 942,
+        content: 'Infrastructure Manager',
+        title: 'Infrastructure Manager<br><b>iTouch Australia</b>',
+        start: '2007-01-02',
+        end: '2007-10-01'},
+
+    {id: 950,
+        type: 'background',
+        content: '<div align="center"><img class="lazy-image org-top-card-module__logo loaded" alt="Cyber IT Solutions Logo" height="90" width="90" src="https://media.licdn.com/mpr/mpr/shrink_100_100/p/1/000/0b0/3fe/352a53f.png"></div><div style="font-size: 150%;font-weight: bold; align-content: center;color:grey">Cyber IT Solutions</div>',
+        style: "background-color: pink;",
+        start: '2004-01-01',
+        end: '2006-04-30'},
+    {id: 951,
+        content: 'Lead Consultant',
+        title: 'Lead Consultant<br><b>Cyber IT Solutions</b>',
+        start: '2004-01-01',
+        end: '2006-04-30'},
+    {id: 952,
+        content: 'Trainer',
+        title: 'Trainer<br><b>Cyber IT Solutions</b>',
+        start: '2004-07-01',
+        end: '2006-04-30'},
+  ]);
+
+  // Configuration for the Timeline
+  var options = {
+	align: 'center',
+	max: '2017-06-01',
+	min: '1992-01-01',
+	minHeight: "350px",
+	zoomMin: '15768000000',
+	zoomMax: '3153600000000'
+  };
+
+  // Create a Timeline
+  var timeline = new vis.Timeline(container, items, options);
+</script>
+</body>
+</html>
