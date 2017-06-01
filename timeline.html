@@ -3,9 +3,6 @@
 <head>
   <title>Rohan Tronson | Interactive Resume</title>
 
-<!--
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400italic,400"> -->
-
   <style type="text/css">
     body, html {
       font-family: sans-serif;
@@ -17,7 +14,7 @@
   <script src="./js/ov_tooltips.js"></script>
 
   <script src="node_modules/vis/dist/vis.js"></script>
-  <link href="node_modules/vis/dist//vis.css" rel="stylesheet" type="text/css" />
+  <link href="node_modules/vis/dist/vis.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="visualization"></div>
@@ -30,6 +27,7 @@ function myFunction() {
 }
 </script>
 
+<!-- /*	content: '<div rel="tooltip" title="Designed a PCI-DSS compliant payment solution for ipSCAPE’s Cloud Contact Centre, enabling ipSCAPE to retain over $1 million in annual revenue from customers with PCI-DSS compliance requirements and enabling additional sales opportunities of approximately $5 million per annum">PCI Compliance</div>', */ -->
 <script type="text/javascript">
   // DOM element where the Timeline will be attached
   var container = document.getElementById('visualization');
@@ -40,17 +38,13 @@ function myFunction() {
 	className: 'achievement',
 	style: 'background-color: lightgray',
 	type: 'box',
-	content: '<div rel="tooltip" title="Designed a PCI-DSS compliant payment solution for ipSCAPE’s Cloud Contact Centre, enabling ipSCAPE to retain over $1 million in annual revenue from customers with PCI-DSS compliance requirements and enabling additional sales opportunities of approximately $5 million per annum">PCI Compliance</div>',
-/*	content: '<div class="popup" onclick="myFunction()">PCI Compliance <span class="popuptext" id="myPopup">Designed a PCI-DSS compliant payment solution for ipSCAPE’s Cloud Contact Centre, enabling ipSCAPE to retain over $1 million in annual revenue from customers with PCI-DSS compliance requirements and enabling additional sales opportunities of approximately $5 million per annum.</span> </div>',
-*/
-/*	title: '<div width="250px" style="white-space:normal">Designed a PCI-DSS compliant payment solution for ipSCAPE’s Cloud Contact Centre, enabling ipSCAPE to retain over $1 million in annual revenue from customers with PCI-DSS compliance requirements and enabling additional sales opportunities of approximately $5 million per annum.</div>', */
+	content: '<table style="padding:15px" rel="tooltip" title="<strong>Key Achievment</strong><br>Designed a PCI-DSS compliant payment solution for ipSCAPE’s Cloud Contact Centre, enabling ipSCAPE to retain over $1 million in annual revenue from customers with PCI-DSS compliance requirements and enabling additional sales opportunities of approximately $5 million per annum"><tr align="left"><td><img alt="Star" height="24" width="24" src="img/star.svg"></td><td> </td><td align="right"><img alt="Savings" height="24" width="24" src="img/dollar.svg"></td></tr><tr><td colspan="3">PCI Compliance</td></tr></table>',
 	start: '2016-06-15'},
-	
     {id: 812,
 	className: 'achievement',
 	type: 'box',
 	style: 'background-color: lightgray',
-	content: '<div rel="tooltip" title="Engagement with stakeholders and development of a suite of DevOps tools and processes to vastly improve the quality of our software, increase the reliability of our infrastructure change process and enhance our security capabilities.">DevOps</div>',
+	content: '<table style="padding:15px" rel="tooltip" title="<strong>Key Achievment</strong><br>Engagement with stakeholders and development of a suite of DevOps tools and processes to vastly improve the quality of our software, increase the reliability of our infrastructure change process and enhance our security capabilities."><tr align="left"><td><img alt="Light Bulb" height="24" width="24" src="img/star.svg"></td><td> </td><td align="right"><img alt="Savings" height="24" width="24" src="img/light-bulb.svg"></td></tr><tr><td colspan="3">DevOps</td></tr></table>',
 /*	title: 'Engagement with stakeholders and development of a suite of DevOps tools and processes to vastly improve the quality of our software, increase the reliability of our infrastructure change process and enhance our security capabilities.', */
 	start: '2016-12-01'},
 	
@@ -58,28 +52,32 @@ function myFunction() {
 	className: 'achievement',
 	type: 'box',
 	style: 'background-color: lightgray',
-	content: '<div rel="tooltip" title="Successfully delivered an infinitely scalable platform, constructed from independent pods which can be used for efficient scaling or redundancy. This solution has been deployed as ipSCAPE’s SaaS platform and has been selected by a multi-billion dollar telecommunications company to re-brand as their Cloud Contact Centre product of choice, globally.">Cloud Platform</div>',
+	content: '<table rel="tooltip" title="<strong>Key Achievment</strong><br>Successfully delivered an infinitely scalable platform, constructed from independent pods which can be used for efficient scaling or redundancy. This solution has been deployed as ipSCAPE’s SaaS platform and has been selected by a multi-billion dollar telecommunications company to re-brand as their Cloud Contact Centre product of choice, globally."><tr align="left"><td><img alt="Gold Star" height="24" width="24" src="img/star.svg"></td><td> </td><td align="right"><img alt="Settings" height="24" width="24" src="img/settings.svg"></td></tr><tr><td colspan="3">Cloud Platform</td></tr></table>',
 	start: '2016-02-01'},
+	
+    {id: 816,
+	className: 'award',
+	type: 'box',
+	style: 'background-color: lightgray',
+	content: '<table rel="tooltip" title="<strong>Award<br>Winner:</strong> ipSCAPE Hackathon (MyCX’17) with a JavaScript and WebRTC based screen recording solution"><tr align="left"><td><img alt="Medal" height="24" width="24" src="img/medal.svg"></td><td> </td><td align="right"></td></tr><tr><td colspan="3">Hackathon Winner</td></tr></table>',
+	start: '2017-04-17'},
 	
     {id: 900,
 	className: 'company',
         type: 'background',
-        content: '<img class="lazy-image org-top-card-module__logo loaded" alt="ipSCAPE Logo" height="90" width="90" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAO-AAAAJGEzZWFjYjE1LTVmOGItNGQ0Ny05YzQxLWExYWIzN2QzMWVmZg.png"><br>ipSCAPE',
+        content: '<img rel="tooltip" title="ipSCAPE" class="lazy-image org-top-card-module__logo loaded" alt="ipSCAPE Logo" height="90" width="90" src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAO-AAAAJGEzZWFjYjE1LTVmOGItNGQ0Ny05YzQxLWExYWIzN2QzMWVmZg.png"><br>ipSCAPE',
         title: 'ipSCAPE develops and hosts a SaaS Contact Centre, providing a fully featured, omni-channel contact centre solution delivered from the cloud or as a white-label, carrier solution.<P>',
         start: '2015-03-01',
         end: '2017-06-01'},
 
     {id: 901,
         type: 'range',
-        content: 'Head of Cloud Technology',
-        title: 'Head of Cloud Technology<br><b>ipSCAPE</b>',
+        content: '<table rel="tooltip" title="Head of Cloud Technology<br>ipSCAPE"><tr><td align="center"><img alt="Hard Hat" height="24" width="24" src="img/hard-hat.svg"></td></tr><tr><td align="center">Head of Cloud Technology</td></tr></table>',
         start: '2015-09-2',
         end: '2017-06-01'},
 
     {id: 902,
-        content: 'Technical Operations Manager',
-        title: 'Technical Operations Manager<br><b>ipSCAPE</b>',
-/*	style: 'white-space: normal', */
+        content: '<table rel="tooltip" title="Technical Operations Manager<br>ipSCAPE"><tr><td align="center"><img alt="Hard Hat" height="24" width="24" src="img/hard-hat.svg"></td></tr><tr><td align="center">Technical Operations Manager</td></tr></table>',
         start: '2015-03-01',
         end: '2015-09-01'},
 
@@ -163,19 +161,29 @@ function myFunction() {
 
   // Configuration for the Timeline
   var options = {
+	locale: 'en',
+/*	rtl: true, */
+	start: '2013-01-01',
 	align: 'center',
 	max: '2018-06-01',
 	min: '1992-01-01',
 	minHeight: "350px",
-	zoomMin: '15768000000',
-	zoomMax: '3153600000000'
+	zoomMin: 15768000000,
+	zoomMax: 3153600000000,
+
   };
 
   // Create a Timeline
   var timeline = new vis.Timeline(container, items, options);
-<!-- </script>
-<abbr rel="tooltip" title="Test this for me, long desription should wrap if we have half a clue">
-Test text
-</abbr> -->
+  </script>
+<!--
+<div>Settings, hard-hat and Dollar Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div>Star and Group Icons made by <a href="http://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div>Lightbulb Icon made by <a href="http://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div>Medal Icon made by <a href="http://www.flaticon.com/authors/eleonor-wang" title="Eleonor Wang">Eleonor Wang</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div>Desk Icon made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+-->
+
+
 </body>
 </html>
